@@ -192,3 +192,5 @@ Running on a Windows machine?  Switch to Windows Containers, and modify your doc
 6. Run a `docker container rm` command to remove the container.
 
 7. Switch back to Linux containers to run the next section.
+
+# Done
