@@ -9,6 +9,10 @@ COPY MultiStage.csproj .
 
 # at src restore the package
 # We copy only the project's manifest file first, then restore dependencies so we can benefit from Docker's layer caching
+# To maximize layer re-use between builds, 
+# it's important to structure the Dockerfile so that frequently changing steps (eg. ADDing code) are towards the end, 
+# and less frequently changing steps (eg. RUNing apt-get install) are on top. 
+#This will ensure that the steps concerned with doing the same action are not unnecessarily rebuilt. 
 RUN dotnet restore MultiStage.csproj
 
 # copy the rest from current dir to /src
