@@ -1,0 +1,7 @@
+# use for production deployment
+# base image from nginx webserver with alpine linux distro
+FROM nginx:alpine
+
+# copy content in this dir to html folder in container
+# the development one will not need this since it mapped index.html by value
+COPY . /usr/share/nginx/html
